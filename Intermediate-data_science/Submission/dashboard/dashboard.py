@@ -1,4 +1,5 @@
 import io
+import pathlib
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -35,8 +36,11 @@ def _create_workday_hourly_df(df):
 
 
 @st.cache_data
-def load_data(path='D:\Project\Intermediate-data_saince\Submission\dashboard\main_data.csv'):
+def load_data(path=None):
     try:
+        if path is None:
+            base = pathlib.Path(__file__).parent
+            path = base / 'main_data.csv'
         df = pd.read_csv(path)
         df['dteday'] = pd.to_datetime(df['dteday'])
         return df
