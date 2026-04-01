@@ -74,7 +74,6 @@ Proyek ini bertujuan untuk mengatasi masalah utama yang dihadapi Jaya Jaya Insti
 
 ### Rekomendasi Action Items
 Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
-Bimbingan Akademik yang Intensif:
 
 1. Solusi Financial: Dengan menambah kuota program beasiswa, menyediakan skema pembayaran cicilan, dan memberikan peringatan dini untuk mahasiswa yang menunggak
    
