@@ -45,7 +45,7 @@ Dashboard ini dirancang untuk memberikan wawasan komprehensif kepada institut te
 2. Menganalisis Faktor-Faktor yang Mempengaruhi Dropout:
     - Dengan analisis mendalam tentang bagaimana faktor-faktor seperti nilai akademik, beasiswa, biaya pendidikan, dan kualifikasi orang tua mempengaruhi status siswa, tim dapat mengidentifikasi elemen-elemen yang paling berisiko bagi siswa. Ini memungkinkan penyesuaian kebijakan dan intervensi yang lebih tepat sasaran.
 
-    <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/dcee27da7e4dca650cfd7d57199836f8968eda14/image/azzror-dashboard.png" width="500">
+    <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/fb82605804e840fabcbf185c6f4bff1a2fd6118e/image/azzror_dashboard.png" width="500">
 
     Atau buka [tautan](https://lookerstudio.google.com/s/qCLnx10DVHE) untuk membuka dashboard yang ada di looker studio.
 
@@ -55,6 +55,8 @@ Pada proyek ini telah disediakan sebuah prototype untuk melakukan prediksi terha
 ```
 streamlit run app.py
 ```
+👉 [Klik di sini untuk membuka aplikasi](https://edutech-problem.streamlit.app/)
+
  <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/dcee27da7e4dca650cfd7d57199836f8968eda14/image/azzror-prototype.png" width="500">
 
 ## Conclusion
@@ -65,10 +67,10 @@ Proyek ini bertujuan untuk mengatasi masalah utama yang dihadapi Jaya Jaya Insti
 - Dengan mengembangkan model prediktif berbasis algoritma seperti Random Forest, Decision Tree, maupun XGBoost, Jaya Jaya Institut dapat mengenali siswa yang berisiko dropout lebih dini. Model ini mampu mendeteksi siswa berisiko dengan tingkat akurasi yang baik berdasarkan data historis serta berbagai faktor yang berkaitan, seperti performa akademik (nilai masuk dan nilai semester), kondisi finansial (status pembayaran dan beasiswa), serta latar belakang pendidikan dan kondisi khusus mahasiswa. Dengan memanfaatkan kombinasi faktor tersebut, institusi dapat melakukan intervensi lebih cepat dan tepat untuk mengurangi tingkat dropout.
   
 2. Apa saja faktor yang menyebabkan siswa tidak menyelesaikan pendidikannya (dropout)?
+
 - Tingkat dropout mahasiswa dipengaruhi oleh faktor finansial, di mana mahasiswa yang tidak mampu membayar biaya pendidikan atau tidak mendapatkan beasiswa cenderung lebih tinggi untuk dropout. Selain itu, faktor usia juga berpengaruh, dengan mahasiswa yang lebih tua memiliki risiko dropout yang lebih besar karena kemungkinan memiliki tanggung jawab tambahan di luar akademik.
 
  <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/dcee27da7e4dca650cfd7d57199836f8968eda14/image/azzror-korelasi.png" width="500">
-
 
 ### Rekomendasi Action Items
 Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
