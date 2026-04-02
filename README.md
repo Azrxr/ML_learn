@@ -5,76 +5,63 @@
 * Id Dicoding: azzror
 
 ## Business Understanding
-**Jaya Jaya Institut** adalah sebuah institusi pendidikan tinggi yang telah berdiri sejak tahun 2000. Selama lebih dari dua dekade, institusi ini telah berhasil mencetak banyak lulusan dengan reputasi yang sangat baik di berbagai bidang. Namun, seperti banyak institusi pendidikan lainnya, Jaya Jaya Institut juga menghadapi tantangan yang signifikan terkait dengan tingginya tingkat siswa yang tidak menyelesaikan pendidikannya alias dropout.
+Jaya Jaya Institut merupakan salah satu institusi pendidikan perguruan yang telah berdiri sejak tahun 2000. Hingga saat ini ia telah mencetak banyak lulusan dengan reputasi yang sangat baik. Akan tetapi, terdapat banyak juga siswa yang tidak menyelesaikan pendidikannya alias dropout.
 
-**Masalah dropout** ini merupakan masalah yang serius bagi institusi pendidikan, karena dropout yang tinggi dapat mempengaruhi citra institusi, mengurangi tingkat kelulusan, dan pada akhirnya berdampak pada daya tarik institusi bagi calon siswa di masa mendatang. Tingkat dropout yang tinggi juga bisa menjadi indikasi bahwa ada masalah mendasar dalam proses penerimaan siswa, pembelajaran, atau dukungan akademik yang disediakan oleh institusi.
+Jumlah dropout yang tinggi ini tentunya menjadi salah satu masalah yang besar untuk sebuah institusi pendidikan. Oleh karena itu, Jaya Jaya Institut ingin mendeteksi secepat mungkin siswa yang mungkin akan melakukan dropout sehingga dapat diberi bimbingan khusus.
 
 ### Permasalahan Bisnis
-Masalah bisnis yang ingin diselesaikan adalah sebagai berikut:
-1. Bagaimana cara mengidentifikasi mahasiswa yang berpotensi dropout sejak dini?
-2. Apa saja faktor yang menyebabkan siswa tidak menyelesaikan pendidikannya (dropout)?
-3. Tindakan apa yang dapat dilakukan untuk mengurangi mahasiswa dropout dan memastikan lebih banyak mahasisawa yang menyelesaikan pendidikannya?
+Tantangan jumlah dropout ini terletak pada deteksi sejak dini agar jumlah mahasiswa yang terancam dropout bisa dicegah. Beberapa pertanyaan bisnis yang bisa dijadikan acauan sebagai berikut: bagaimana mendeteksi mahasiswa yang terancam dropout, apa komponen utama yang menjadi penentu dalam seberapa terancam mahasiswa untuk dropout, dan apa rekomendasi aksi yang harus dilakukan untuk mencegah mahasiswa dropout.
 
 ### Cakupan Proyek
-Berikut cakupan proyek yang telah dikerjakan:
-* Eksplorasi dan Analysis Data : Melakukan eksplorasi pada data yang sudah diperoleh agar dapat mendapatkan gambaran umum tentang data. Selanjutnya melakukan analysis untuk mengidentifikasi faktor yang mempengaruhi mahasiswa dropout
-* Visualisasi Data : Membuat dashboard laporan untuk memonitor dan menganalissis mahasiswa yang berpotensi dropout
-* Model dan Rekomendasi : Membangun model klasifikasi untuk melakukan rekomendasi yang dapat dilakukan untuk mengurangi droput.
+Proyek ini mencakup analisis data, pemahaman data, mencari faktor utama penentu dropout lalu membuat dashboard untuk mendapatkan insight tentang mahasiswa yang dropout. Dari insight tersebut, didapat rekomendasi aksi yang harus dilakukan untuk mencegah jumlah dropout semakin banyak.
 
 ### Persiapan
 
-Sumber data: dataset yang digunakan merupakan dataset [Jaya Jaya Institut](https://github.com/dicodingacademy/dicoding_dataset/tree/main/students_performance).
+Sumber data: dataset yang digunakan merupakan dataset yang diambil dari Jaya Jaya Institut [link](https://github.com/dicodingacademy/dicoding_dataset/tree/main/students_performance)
 
-* Setup environment:
-    ```
-    conda create --name proyek-institusi-pendidikan python==3.9.15
-    ```
-* Install requirements: 
-    ```
-    pip install -r requirements.txt
-    ```
+Setup environment:
+```
+conda create --name dicoding
+```
 
+Install requirements:
+```
+pip install -r requirements.txt
+```
 
 ## Business Dashboard
-Berikut adalah dashboard yang telah dibuat:
+[Link Dashboard](https://lookerstudio.google.com/reporting/da5b9f79-75b2-45f1-81fc-578e4d500eeb)
 
-Dashboard ini dirancang untuk memberikan wawasan komprehensif kepada institut terhadap faktor-faktor yang berkontribusi dengan **Status** baik dropout, enrolled, ataupun graduated. Dengan dashboard ini tim institut dapat :
-1. Memantau Tingkat Dropout Secara Proaktif:
-    - Melalui visualisasi persentase siswa yang dropout, enrolled, dan graduate, tim dapat memantau tren dropout secara real-time. Ini memungkinkan institusi untuk segera mengambil tindakan jika terlihat ada peningkatan signifikan dalam tingkat dropout.
+Dashboard ini menampilkan ringkasan statistik dan visualisasi performa akademik mahasiswa berdasarkan status akhir mereka: lulus, masih aktif, dan dropout. Terlihat bahwa mahasiswa yang dropout memiliki jumlah mata kuliah yang disetujui serta nilai (grade) yang jauh lebih rendah dibanding mahasiswa yang lulus, baik pada semester pertama maupun kedua.
 
-2. Menganalisis Faktor-Faktor yang Mempengaruhi Dropout:
-    - Dengan analisis mendalam tentang bagaimana faktor-faktor seperti nilai akademik, beasiswa, biaya pendidikan, dan kualifikasi orang tua mempengaruhi status siswa, tim dapat mengidentifikasi elemen-elemen yang paling berisiko bagi siswa. Ini memungkinkan penyesuaian kebijakan dan intervensi yang lebih tepat sasaran.
-
-    <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/fb82605804e840fabcbf185c6f4bff1a2fd6118e/image/azzror_dashboard.png" width="500">
-
-    Atau buka [tautan](https://lookerstudio.google.com/s/qCLnx10DVHE) untuk membuka dashboard yang ada di looker studio.
+Polanya menunjukkan bahwa mahasiswa yang dropout sudah mengalami kesulitan akademik sejak semester pertama. Jumlah mata kuliah yang diluluskan dan nilai yang rendah bisa menjadi indikator awal risiko dropout. Informasi ini berguna untuk mendeteksi mahasiswa berisiko dan merancang intervensi lebih dini.
 
 ## Menjalankan Sistem Machine Learning
-Pada proyek ini telah disediakan sebuah prototype untuk melakukan prediksi terhadap model yang sudah dibuat. Untuk menjalankan protoype secara lokal jalankan perintah berikut di terminal: 
+Dalam proyek ini, sebuah prototipe telah disiapkan untuk melakukan prediksi menggunakan model yang telah dilatih. Isi data sesuai fieldnya, lalu di paling bawah klik tombol predict, hasil prediksi pun akan muncul.
 
-```
-streamlit run app.py
-```
-👉 [Klik di sini untuk membuka aplikasi](https://edutech-problem.streamlit.app/)
+- **Menjalankan secara lokal**
+  Buka terminal pada direktori proyek, kemudian ketik:
 
- <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/dcee27da7e4dca650cfd7d57199836f8968eda14/image/azzror-prototype.png" width="500">
+  ```bash
+  streamlit run app.py
+  ```
+
+- **Akses melalui web**
+  Silakan buka prototipe langsung di [tautan ini](https://edutech-problem.streamlit.app/).
 
 ## Conclusion
-Proyek ini bertujuan untuk mengatasi masalah utama yang dihadapi Jaya Jaya Institut terkait tingkat dropout siswa. Berikut adalah rangkuman proyek ini:
+Proyek deteksi dropout mahasiswa di Jaya Jaya Institut berhasil mengidentifikasi bahwa performa akademik semester pertama merupakan prediktor terkuat untuk dropout. Mahasiswa yang dropout memiliki rata-rata nilai jauh lebih rendah (8-10) dibanding yang lulus (28-30) dan hanya menyelesaikan 3-4 mata kuliah per semester. Model Random Forest yang dikembangkan mampu memprediksi risiko dropout dengan akurasi tinggi.
 
-1. Bagaimana cara mengidentifikasi siswa yang berpotensi dropout sejak awal?
-
-- Dengan mengembangkan model prediktif berbasis algoritma seperti Random Forest, Decision Tree, maupun XGBoost, Jaya Jaya Institut dapat mengenali siswa yang berisiko dropout lebih dini. Model ini mampu mendeteksi siswa berisiko dengan tingkat akurasi yang baik berdasarkan data historis serta berbagai faktor yang berkaitan, seperti performa akademik (nilai masuk dan nilai semester), kondisi finansial (status pembayaran dan beasiswa), serta latar belakang pendidikan dan kondisi khusus mahasiswa. Dengan memanfaatkan kombinasi faktor tersebut, institusi dapat melakukan intervensi lebih cepat dan tepat untuk mengurangi tingkat dropout.
-  
-2. Apa saja faktor yang menyebabkan siswa tidak menyelesaikan pendidikannya (dropout)?
-
-- Tingkat dropout mahasiswa dipengaruhi oleh faktor finansial, di mana mahasiswa yang tidak mampu membayar biaya pendidikan atau tidak mendapatkan beasiswa cenderung lebih tinggi untuk dropout. Selain itu, faktor usia juga berpengaruh, dengan mahasiswa yang lebih tua memiliki risiko dropout yang lebih besar karena kemungkinan memiliki tanggung jawab tambahan di luar akademik.
-
- <img src="https://raw.githubusercontent.com/Azrxr/ML_learn/dcee27da7e4dca650cfd7d57199836f8968eda14/image/azzror-korelasi.png" width="500">
+Sistem ini membuktikan bahwa 6 bulan pertama perkuliahan adalah periode kritis yang menentukan keberhasilan akademik. Dengan implementasi early warning system berbasis machine learning, Jaya Jaya Institut dapat melakukan intervensi dini, meningkatkan retention rate, dan mengoptimalkan alokasi sumber daya pendidikan untuk memberikan setiap mahasiswa kesempatan terbaik mencapai kelulusan.
 
 ### Rekomendasi Action Items
 Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
+- Deteksi Dini: Identifikasi mahasiswa dengan jumlah mata kuliah lulus dan nilai yang rendah sejak semester pertama sebagai kelompok berisiko tinggi untuk dropout.
 
-1. Solusi Financial: Dengan menambah kuota program beasiswa, menyediakan skema pembayaran cicilan, dan memberikan peringatan dini untuk mahasiswa yang menunggak
-   
-2. Dukungan Mahasiswa Lebih Tua: Dengan menyediakan jadwal kuliah fleksibel, program kelas karyawan atau part-time, dan menyediakan dosen pembimbing khusus
+- Pendampingan Akademik: Berikan bimbingan belajar atau tutoring tambahan untuk mahasiswa yang menunjukkan performa akademik rendah di awal studi.
+
+- Monitoring Berkala: Lakukan evaluasi rutin setiap akhir semester untuk memantau perkembangan mahasiswa, khususnya pada semester pertama dan kedua.
+
+- Intervensi Psikologis dan Konseling: Tawarkan layanan konseling untuk membantu mahasiswa mengatasi tekanan akademik atau pribadi yang mungkin memengaruhi performa belajar.
+
+- Peringatan Dini Otomatis: Kembangkan sistem peringatan berbasis data yang dapat memberi notifikasi kepada dosen wali atau staf akademik saat mahasiswa menunjukkan gejala awal risiko dropout.
