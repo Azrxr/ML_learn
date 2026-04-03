@@ -1,67 +1,169 @@
 # Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
 
-* Nama: Moh Asrori
-* Email: irvanea1@gmail.com
-* Id Dicoding: azzror
+**Nama:** Moh Asrori
+**Email:** irvanea1@gmail.com
+**ID Dicoding:** azzror
+
+---
 
 ## Business Understanding
-Jaya Jaya Institut merupakan salah satu institusi pendidikan perguruan yang telah berdiri sejak tahun 2000. Hingga saat ini ia telah mencetak banyak lulusan dengan reputasi yang sangat baik. Akan tetapi, terdapat banyak juga siswa yang tidak menyelesaikan pendidikannya alias dropout.
 
-Jumlah dropout yang tinggi ini tentunya menjadi salah satu masalah yang besar untuk sebuah institusi pendidikan. Oleh karena itu, Jaya Jaya Institut ingin mendeteksi secepat mungkin siswa yang mungkin akan melakukan dropout sehingga dapat diberi bimbingan khusus.
+Jaya Jaya Institut merupakan institusi pendidikan yang telah berdiri sejak tahun 2000 dan telah menghasilkan banyak lulusan berkualitas. Namun, masih terdapat permasalahan tingginya jumlah mahasiswa yang tidak menyelesaikan studi (dropout).
 
-### Permasalahan Bisnis
-Tantangan jumlah dropout ini terletak pada deteksi sejak dini agar jumlah mahasiswa yang terancam dropout bisa dicegah. Beberapa pertanyaan bisnis yang bisa dijadikan acauan sebagai berikut: bagaimana mendeteksi mahasiswa yang terancam dropout, apa komponen utama yang menjadi penentu dalam seberapa terancam mahasiswa untuk dropout, dan apa rekomendasi aksi yang harus dilakukan untuk mencegah mahasiswa dropout.
+Permasalahan ini menjadi krusial karena berdampak pada reputasi institusi serta efisiensi proses pendidikan. Oleh karena itu, diperlukan solusi untuk mendeteksi mahasiswa yang berisiko dropout sedini mungkin agar dapat diberikan intervensi yang tepat.
 
-### Cakupan Proyek
-Proyek ini mencakup analisis data, pemahaman data, mencari faktor utama penentu dropout lalu membuat dashboard untuk mendapatkan insight tentang mahasiswa yang dropout. Dari insight tersebut, didapat rekomendasi aksi yang harus dilakukan untuk mencegah jumlah dropout semakin banyak.
+---
 
-### Persiapan
+## Permasalahan Bisnis
 
-Sumber data: dataset yang digunakan merupakan dataset yang diambil dari Jaya Jaya Institut [link](https://github.com/dicodingacademy/dicoding_dataset/tree/main/students_performance)
+Beberapa pertanyaan utama yang ingin dijawab:
 
-Setup environment:
-```
+* Bagaimana mendeteksi mahasiswa yang berisiko dropout sejak dini?
+* Faktor apa saja yang paling berpengaruh terhadap risiko dropout?
+* Apa rekomendasi aksi yang dapat dilakukan untuk menurunkan angka dropout?
+
+---
+
+## Cakupan Proyek
+
+Proyek ini mencakup:
+
+* Analisis data (Exploratory Data Analysis)
+* Identifikasi faktor utama penyebab dropout
+* Pembuatan dashboard untuk visualisasi insight
+* Pengembangan model machine learning untuk prediksi dropout
+* Penyusunan rekomendasi berbasis data
+
+---
+
+## ersiapan
+
+**Sumber data:**
+Dataset mahasiswa dari Jaya Jaya Institut
+https://github.com/dicodingacademy/dicoding_dataset/tree/main/students_performance
+
+**Setup environment:**
+
+```bash
 conda create --name dicoding
+conda activate dicoding
 ```
 
-Install requirements:
-```
+**Install dependencies:**
+
+```bash
 pip install -r requirements.txt
 ```
 
+---
+
 ## Business Dashboard
-[Link Dashboard](https://lookerstudio.google.com/reporting/da5b9f79-75b2-45f1-81fc-578e4d500eeb)
 
-Dashboard ini menampilkan ringkasan statistik dan visualisasi performa akademik mahasiswa berdasarkan status akhir mereka: lulus, masih aktif, dan dropout. Terlihat bahwa mahasiswa yang dropout memiliki jumlah mata kuliah yang disetujui serta nilai (grade) yang jauh lebih rendah dibanding mahasiswa yang lulus, baik pada semester pertama maupun kedua.
+**Link Dashboard:**
+https://lookerstudio.google.com/reporting/da5b9f79-75b2-45f1-81fc-578e4d500eeb
 
-Polanya menunjukkan bahwa mahasiswa yang dropout sudah mengalami kesulitan akademik sejak semester pertama. Jumlah mata kuliah yang diluluskan dan nilai yang rendah bisa menjadi indikator awal risiko dropout. Informasi ini berguna untuk mendeteksi mahasiswa berisiko dan merancang intervensi lebih dini.
+Dashboard menampilkan analisis performa akademik mahasiswa berdasarkan status:
+
+* **Graduate**
+* **Dropout**
+* **Enrolled (aktif)**
+
+Hasil analisis menunjukkan bahwa:
+
+* Mahasiswa yang **graduate** memiliki jumlah mata kuliah lulus dan nilai yang tinggi
+* Mahasiswa yang **dropout** menunjukkan performa akademik yang rendah sejak semester pertama
+* Mahasiswa **enrolled** berada di antara keduanya, menunjukkan potensi menuju dropout atau kelulusan
+
+**Catatan:**
+Status *Enrolled* digunakan dalam tahap eksplorasi data (EDA) untuk memberikan gambaran menyeluruh.
+Namun, pada tahap modeling, analisis difokuskan pada klasifikasi **Dropout vs Graduate** agar model lebih terarah dan menghasilkan prediksi yang lebih actionable.
+
+---
+
+## Machine Learning Model
+
+Model yang digunakan adalah **Random Forest Classifier** dengan pendekatan pipeline (scaling + model).
+
+### Fitur yang digunakan:
+
+* Curricular_units_2nd_sem_approved
+* Curricular_units_1st_sem_approved
+* Curricular_units_2nd_sem_grade
+* Curricular_units_1st_sem_grade
+* Curricular_units_2nd_sem_evaluations
+* Admission_grade
+* Tuition_fees_up_to_date
+* Curricular_units_1st_sem_evaluations
+* Previous_qualification_grade
+* Course
+
+Model difokuskan untuk memprediksi:
+
+* **0 → Dropout**
+* **1 → Graduate**
+
+---
 
 ## Menjalankan Sistem Machine Learning
-Dalam proyek ini, sebuah prototipe telah disiapkan untuk melakukan prediksi menggunakan model yang telah dilatih. Isi data sesuai fieldnya, lalu di paling bawah klik tombol predict, hasil prediksi pun akan muncul.
 
-- **Menjalankan secara lokal**
-  Buka terminal pada direktori proyek, kemudian ketik:
+### Jalankan secara lokal
 
-  ```bash
-  streamlit run app.py
-  ```
+```bash
+streamlit run app.py
+```
 
-- **Akses melalui web**
-  Silakan buka prototipe langsung di [tautan ini](https://edutech-problem.streamlit.app/).
+### Akses web
+
+https://edutech-problem.streamlit.app/
+
+### Cara penggunaan:
+
+1. Isi data akademik mahasiswa
+2. Klik tombol **Predict**
+3. Sistem akan menampilkan:
+
+   * Prediksi status mahasiswa
+   * Probabilitas hasil prediksi
+
+---
 
 ## Conclusion
-Proyek deteksi dropout mahasiswa di Jaya Jaya Institut berhasil mengidentifikasi bahwa performa akademik semester pertama merupakan prediktor terkuat untuk dropout. Mahasiswa yang dropout memiliki rata-rata nilai jauh lebih rendah (8-10) dibanding yang lulus (28-30) dan hanya menyelesaikan 3-4 mata kuliah per semester. Model Random Forest yang dikembangkan mampu memprediksi risiko dropout dengan akurasi tinggi.
 
-Sistem ini membuktikan bahwa 6 bulan pertama perkuliahan adalah periode kritis yang menentukan keberhasilan akademik. Dengan implementasi early warning system berbasis machine learning, Jaya Jaya Institut dapat melakukan intervensi dini, meningkatkan retention rate, dan mengoptimalkan alokasi sumber daya pendidikan untuk memberikan setiap mahasiswa kesempatan terbaik mencapai kelulusan.
+Berdasarkan analisis dan modeling yang dilakukan:
 
-### Rekomendasi Action Items
-Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
-- Deteksi Dini: Identifikasi mahasiswa dengan jumlah mata kuliah lulus dan nilai yang rendah sejak semester pertama sebagai kelompok berisiko tinggi untuk dropout.
+* Performa akademik, terutama pada semester pertama, merupakan faktor paling berpengaruh terhadap risiko dropout
+* Mahasiswa dengan jumlah mata kuliah lulus dan nilai yang rendah cenderung memiliki risiko dropout lebih tinggi
+* Mahasiswa aktif (*enrolled*) menunjukkan performa di tingkat menengah, yang berpotensi berkembang menjadi dropout atau graduate
 
-- Pendampingan Akademik: Berikan bimbingan belajar atau tutoring tambahan untuk mahasiswa yang menunjukkan performa akademik rendah di awal studi.
+Model machine learning yang dikembangkan mampu membantu mendeteksi mahasiswa berisiko secara lebih dini.
 
-- Monitoring Berkala: Lakukan evaluasi rutin setiap akhir semester untuk memantau perkembangan mahasiswa, khususnya pada semester pertama dan kedua.
+Implementasi sistem ini berpotensi:
 
-- Intervensi Psikologis dan Konseling: Tawarkan layanan konseling untuk membantu mahasiswa mengatasi tekanan akademik atau pribadi yang mungkin memengaruhi performa belajar.
+* Menurunkan angka dropout
+* Meningkatkan tingkat kelulusan
+* Membantu institusi dalam pengambilan keputusan berbasis data
 
-- Peringatan Dini Otomatis: Kembangkan sistem peringatan berbasis data yang dapat memberi notifikasi kepada dosen wali atau staf akademik saat mahasiswa menunjukkan gejala awal risiko dropout.
+---
+
+## Rekomendasi Action Items
+
+* **Deteksi Dini**
+  Identifikasi mahasiswa dengan performa akademik rendah sejak semester pertama
+
+* **Pendampingan Akademik**
+  Berikan tutoring atau bimbingan tambahan bagi mahasiswa berisiko
+
+* **Monitoring Berkala**
+  Lakukan evaluasi performa setiap semester
+
+* **Konseling & Dukungan Psikologis**
+  Sediakan layanan konseling bagi mahasiswa
+
+* **Sistem Early Warning**
+  Kembangkan notifikasi otomatis untuk mendeteksi risiko dropout
+
+---
+
+## Penutup
+
+Proyek ini menunjukkan bagaimana data dan machine learning dapat digunakan untuk menyelesaikan permasalahan nyata di dunia pendidikan, khususnya dalam meningkatkan keberhasilan akademik mahasiswa.
